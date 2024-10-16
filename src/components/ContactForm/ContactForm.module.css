@@ -17,7 +17,7 @@
   margin: 0 auto;
   font-weight: bold;
   background-color: rgb(69, 179, 230);
-  color: aliceblue;
+  color: rgb(199, 210, 219);
   border: none;
   cursor: pointer;
   border-radius: 8px;
@@ -37,7 +37,7 @@
 }
 
 .inputErr {
-  color: red;
+  color: rgb(255, 27, 27);
 }
 
 .formInput {

@@ -1,11 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
+// import { useDispatch } from 'react-redux';
+// import { addContact } from '../../redux/contactsOps';
 
 const ContactForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const orderSchema = Yup.object({
     name: Yup.string()
@@ -20,12 +20,12 @@ const ContactForm = () => {
   });
 
   const handleForm = (values, options) => {
-    dispatch(
-      addContact({
-        name: values.name.trim().toLowerCase(),
-        number: values.number,
-      })
-    );
+    // dispatch(
+    //   addContact({
+    //     name: values.name.trim().toLowerCase(),
+    //     number: values.number,
+    //   })
+    // );
     options.resetForm();
   };
 
@@ -36,18 +36,31 @@ const ContactForm = () => {
         onSubmit={handleForm}
         validationSchema={orderSchema}
       >
-        <Form className={s.contactForm}>
-          <label>
-            Name
-            <Field className={s.formInput} name='name' />
-            <ErrorMessage className={s.inputErr} name='name' component='p' />
+        <Form className='flex flex-col p-7 w-[360px] gap-4 rounded-xl shadow-custom-blue bg-light-blue mb-6'>
+          <label className='flex flex-col gap-2 font-bold'>
+            <div className='flex justify-between'>
+              <p>Name</p>
+              <ErrorMessage className='text-red' name='name' component='p' />
+            </div>
+            <Field
+              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-blue'
+              name='name'
+            />
           </label>
-          <label>
-            Number
-            <Field className={s.formInput} name='number' />
-            <ErrorMessage className={s.inputErr} name='number' component='p' />
+          <label className='flex flex-col gap-2 font-bold'>
+            <div className='flex justify-between'>
+              <p>Number</p>
+              <ErrorMessage className='text-red' name='number' component='p' />
+            </div>
+            <Field
+              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-blue'
+              name='number'
+            />
           </label>
-          <button className={s.formBtn} type='submit'>
+          <button
+            className='py-2 px-5 m-auto font-bold bg-blue text-light-blue rounded-lg transition-all hover:bg-blue]'
+            type='submit'
+          >
             Add contact
           </button>
         </Form>
