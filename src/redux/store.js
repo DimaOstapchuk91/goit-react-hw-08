@@ -18,7 +18,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'userToken',
   storage,
-  whitelist: ['token', 'isLoggedIn'],
+  whitelist: ['token'],
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);
