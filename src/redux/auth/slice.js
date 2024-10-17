@@ -31,7 +31,10 @@ const slise = createSlice({
         state.user = action.payload;
         state.isLoggedIn = true;
       })
-      .addCase(refreshUser.rejected, () => initialState);
+      .addCase(refreshUser.rejected, () => initialState)
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isLoggedIn = false;
+      });
   },
 });
 
