@@ -1,11 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import s from './ContactForm.module.css';
-// import { useDispatch } from 'react-redux';
-// import { addContact } from '../../redux/contactsOps';
+
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contacts/operations';
 
 const ContactForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const orderSchema = Yup.object({
     name: Yup.string()
@@ -20,12 +20,12 @@ const ContactForm = () => {
   });
 
   const handleForm = (values, options) => {
-    // dispatch(
-    //   addContact({
-    //     name: values.name.trim().toLowerCase(),
-    //     number: values.number,
-    //   })
-    // );
+    dispatch(
+      addContact({
+        name: values.name.trim().toLowerCase(),
+        number: values.number,
+      })
+    );
     options.resetForm();
   };
 

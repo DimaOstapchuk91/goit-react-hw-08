@@ -1,14 +1,12 @@
-// import { useDispatch } from 'react-redux';
-import s from './SearchBox.module.css';
-// import { changeFilter } from '../../redux/filtersSlice';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../redux/filters/slice';
 
 const SearchBox = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSearchUser = event => {
     const form = event.target;
-
-    // dispatch(changeFilter(form.value.toLowerCase()));
+    dispatch(changeFilter(form.value.toLowerCase()));
   };
   return (
     <div className='p-7 w-[360px] bg-light-blue rounded-xl shadow-custom-blue'>
