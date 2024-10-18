@@ -51,7 +51,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkApi) => {
     const token = thunkApi.getState().auth.token;
     if (!token) {
-      return;
+      return thunkApi.rejectWithValue('token not found');
     }
 
     setAuthHeader(token);
@@ -61,7 +61,7 @@ export const refreshUser = createAsyncThunk(
       console.log(data);
       return data;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

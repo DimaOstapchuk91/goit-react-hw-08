@@ -29,6 +29,7 @@ const slise = createSlice({
       .addCase(logaut.fulfilled, () => initialState)
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.isLoggedIn = true;
       })
       .addCase(refreshUser.rejected, () => initialState);
   },
