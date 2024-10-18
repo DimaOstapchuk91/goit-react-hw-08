@@ -1,5 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from './operations';
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+  updateContact,
+} from './operations';
 
 const initialState = {
   contacts: {
@@ -23,6 +28,17 @@ const slise = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.contacts.items = state.contacts.items.filter(
           item => item.id !== action.payload
+        );
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        state.contacts.items = state.contacts.items.map(item =>
+          item.id === action.payload.id
+            ? {
+                ...item,
+                name: action.payload.name,
+                number: action.payload.number,
+              }
+            : item
         );
       })
       .addMatcher(

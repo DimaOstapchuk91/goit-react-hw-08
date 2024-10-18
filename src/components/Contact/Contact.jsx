@@ -1,13 +1,27 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
+import { useState } from 'react';
+import EditContactModal from '../EditContactModal/EditContactModal';
+
+import ReactModal from 'react-modal';
 
 const Contact = ({ user }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleDeleteContactUser = () => {
     dispatch(deleteContact(user.id));
   };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  ReactModal.setAppElement('#root');
 
   return (
     <>
@@ -25,9 +39,19 @@ const Contact = ({ user }) => {
         >
           <RiDeleteBinLine size={24} />
         </button>
-        <button className='bg-blue opacity-80 text-light-blue p-1 rounded-md transition-all duration-300 hover:bg-hover-blue'>
+        <button
+          onClick={handleOpenModal}
+          className='bg-blue opacity-80 text-light-blue p-1 rounded-md transition-all duration-300 hover:bg-hover-blue'
+        >
           <RiEdit2Line size={24} />
         </button>
+        <ReactModal
+          isOpen={isModalOpen}
+          contentLabel={'Example Modal'}
+          className='fixed inset-0 flex items-center justify-center'
+        >
+          <EditContactModal closeModal={handleCloseModal} user={user} />
+        </ReactModal>
       </div>
     </>
   );

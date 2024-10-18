@@ -16,7 +16,7 @@ const ContactList = () => {
       <ul className='flex flex-col gap-6 '>
         {searchUsers.map(user => (
           <li
-            className='flex justify-between items-center p-4 w-full h-20 bg-light-blue rounded-xl shadow-custom-blue'
+            className='flex justify-between items-center p-4 w-full h-20 bg-light-blue rounded-xl shadow-custom-blue transition-all duration-300 hover:scale-105'
             key={user.id}
           >
             <Contact user={user} />
