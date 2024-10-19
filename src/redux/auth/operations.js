@@ -28,7 +28,7 @@ export const login = createAsyncThunk(
       const { data } = await goitApi.post('/users/login', userLogin);
       return data;
     } catch (error) {
-      thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -58,10 +58,11 @@ export const refreshUser = createAsyncThunk(
 
     try {
       const { data } = await goitApi.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(
+        error.response ? error.response.data : error.message
+      );
     }
   }
 );

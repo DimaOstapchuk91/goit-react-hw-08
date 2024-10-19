@@ -45,7 +45,7 @@ export const EditContactModal = ({ closeModal, user }) => {
               <ErrorMessage className='text-red' name='name' component='p' />
             </div>
             <Field
-              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-blue'
+              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-hover-blue'
               name='name'
             />
           </label>
@@ -55,15 +55,15 @@ export const EditContactModal = ({ closeModal, user }) => {
               <ErrorMessage className='text-red' name='number' component='p' />
             </div>
             <Field
-              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-blue'
+              className='py-2 px-5 h-8 rounded-md border-brand-blue border-2 outline-none focus:border-hover-blue'
               name='number'
             />
           </label>
           <button
-            className='py-2 px-5 m-auto font-bold bg-blue text-light-blue rounded-lg transition-all hover:bg-blue]'
+            className='py-2 px-5 m-auto font-bold bg-blue text-light-blue rounded-lg transition-all hover:bg-hover-blue'
             type='submit'
           >
-            Add contact
+            Change
           </button>
         </Form>
       </Formik>

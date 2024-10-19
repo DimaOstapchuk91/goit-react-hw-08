@@ -45,7 +45,8 @@ const slise = createSlice({
         isAnyOf(
           fetchContacts.pending,
           addContact.pending,
-          deleteContact.pending
+          deleteContact.pending,
+          updateContact.pending
         ),
         state => {
           state.contacts.loading = true;
@@ -56,7 +57,8 @@ const slise = createSlice({
         isAnyOf(
           fetchContacts.rejected,
           addContact.rejected,
-          deleteContact.rejected
+          deleteContact.rejected,
+          updateContact.rejected
         ),
         (state, action) => {
           state.contacts.loading = false;
@@ -67,7 +69,8 @@ const slise = createSlice({
         isAnyOf(
           fetchContacts.fulfilled,
           addContact.fulfilled,
-          deleteContact.fulfilled
+          deleteContact.fulfilled,
+          updateContact.fulfilled
         ),
         state => {
           state.contacts.loading = false;
