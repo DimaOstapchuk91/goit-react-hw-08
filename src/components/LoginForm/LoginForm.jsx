@@ -9,7 +9,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const errorLogin = useSelector(selectIsError);
 
-  const handleLogin = (value, options) => {
+  const handleLogin = value => {
     dispatch(login(value));
 
     if (errorLogin) {

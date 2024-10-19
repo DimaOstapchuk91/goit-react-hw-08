@@ -8,7 +8,7 @@ const UserMenu = () => {
   const userName = useSelector(selectUser);
 
   const handleExit = () => {
-    toast.success(`Goodby ${userName.name}`, {
+    toast.success(`Goodbye ${userName.name}`, {
       duration: 4000,
       position: 'top-center',
 

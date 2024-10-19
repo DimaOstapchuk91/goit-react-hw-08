@@ -66,5 +66,3 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
-
-// horsethebest@mail.com  123456789 Khal Drogo
